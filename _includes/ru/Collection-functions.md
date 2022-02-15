@@ -1,5 +1,5 @@
-|                                            |                                    |
-| ------------------------------------------ | ---------------------------------- |
-| Apply f to all elements of collection coll | `map(f, coll)` or<br>`map(coll) do elem`<br>`    # do stuff with elem`<br>`    # must contain return`<br>`end` |
-| Filter coll for true values of f           | `filter(f, coll)`                  |
-| List comprehension                         | `arr = [f(elem) for elem in coll]` |
+|                                                        |                                                                                                                           |
+|--------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| Применить f ко всем элементам коллекции coll           | `map(f, coll)` или<br>`map(coll) do elem`<br>`    # выполнить действия с elem`<br>`    # должно включать return`<br>`end` |
+| Отфильтрвать coll чтобы осавить только true значения f | `filter(f, coll)`                                                                                                         |
+| Генератор массива                                      | `arr = [f(elem) for elem in coll]`                                                                                        |

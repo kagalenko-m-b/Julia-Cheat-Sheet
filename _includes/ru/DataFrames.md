@@ -1,19 +1,19 @@
-For `dplyr`-like tools, see
+Об инструментах, подобных `dplyr`, см.
 [DataFramesMeta.jl.](https://github.com/JuliaStats/DataFramesMeta.jl)
 
 |                                  |                                           |
 | -------------------------------- | ----------------------------------------- |
-| Read Stata, SPSS, etc.           | `StatFiles` Package                       |
-| <a class="tooltip" href="#">Describe<span>Similar to `summary(df)` in R.</span></a> data frame | `describe(df)` |
-| Make vector of column `col`      | `v = df[:col]`                            |
-| Sort by `col`                    | `sort!(df, [:col])`                       |
-| <a class="tooltip" href="#">Categorical<span>Similar to `df$col = as.factor(df$col)` in R.</span> `col` | `categorical!(df, [:col])` |
-| List `col` levels                | `levels(df[:col])`                        |
-| All observations with `col==val` | `df[df[:col] .== val, :]`                 |
-| Reshape from wide to long format | `stack(df, [1:n; ])`<br>`stack(df, [:col1, :col2, ...])`<br>`melt(df, [:col1, :col2])` |
-| Reshape from long to wide format | `unstack(df, :id, :val)`                  |
-| Make `Nullable`                  | `allowmissing!(df)` or `allowmissing!(df, :col)` |
-| Loop over Rows                   | `for r in eachrow(df)`<br>`    # do stuff.`<br>`    # r is Struct with fields of col names.`<br>`end` |
-| Loop over Columns                | `for c in eachcol(df)`<br>`    # do stuff.`<br>`    # c is tuple with name, then vector`<br>`end` |
-| Apply func to groups             | `by(df, :group_col, func)`                |
-| Query                            | `using Query`<br>`query = @from r in df begin`<br>`    @where r.col1 > 40`<br>`    @select {new_name=r.col1, r.col2}`<br>`    @collect DataFrame # Default: iterator`<br>`end` |
+| Читать Stata, SPSS, etc.         | Пакет `StatFiles`                       |
+| <a class="tooltip" href="#">Описать<span>Похоже на `summary(df)` в R.</span></a> фрейм данных | `describe(df)` |
+| Преобразовать `col` в вектор     | `v = df[:col]`                            |
+| Отсортировать по  `col`          | `sort!(df, [:col])`                       |
+| <a class="tooltip" href="#">Categorical<span>Похоже на `df$col = as.factor(df$col)` в R.</span> `col` | `categorical!(df, [:col])` |
+| Перечислить уровни `col`         | `levels(df[:col])`                        |
+| Все наблюдения с `col==val`      | `df[df[:col] .== val, :]`                 |
+| Переформатировать с широкого на длинный | `stack(df, [1:n; ])`<br>`stack(df, [:col1, :col2, ...])`<br>`melt(df, [:col1, :col2])` |
+| Переформатировать с длинного на широкий | `unstack(df, :id, :val)`                  |
+| Создать `Nullable`                  | `allowmissing!(df)` or `allowmissing!(df, :col)` |
+| Цикл по строкам                  | `for r in eachrow(df)`<br>`    # выполнить действия.`<br>`    # r является Struct с полями имён col.`<br>`end` |
+| Цикл по столбцам                 | `for c in eachcol(df)`<br>`    # выполнить действия.`<br>`    # c - кортеж с именем и вектором `<br>`end` |
+| Применить func к группам         | `by(df, :group_col, func)`                |
+| Запрос                           | `using Query`<br>`query = @from r in df begin`<br>`    @where r.col1 > 40`<br>`    @select {new_name=r.col1, r.col2}`<br>`    @collect DataFrame # Default: iterator`<br>`end` |

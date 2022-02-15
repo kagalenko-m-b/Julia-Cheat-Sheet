@@ -29,6 +29,14 @@ t:
     github-2: "localizado aqui"
     github-3: "Pull requests são bem-vindos!"
     translate: "Ajude a traduzir!"
+  ru:
+    name: "Русский"
+    fast-track: "Быстрый путь к"
+    quick-dirty: "Краткий и неформальный обзор"
+    github-1: "Исходный код этой страницы"
+    github-2: "расположен здесь"
+    github-3: "Запросы на включение изменений приветствуются!"
+    translate: "Помогите перевести!"
   zh-cn:
     name: "中文(简体)"
     fast-track: "快速入门"
@@ -53,11 +61,3 @@ t:
     github-2: "ここにあります"
     github-3: "Pull requests は大歓迎です"
     translate: "翻訳にご協力ください" # Not used for `en`
-ru:
-    name: "Русский"
-    fast-track: "Быстрый путь к"
-    quick-dirty: "Краткий и неформальный обзор"
-    github-1: "Исходный код этой страницы"
-    github-2: "расположен здесь"
-    github-3: "Запросы на включение изменений приветствуются!"
-    translate: "Помогите перевести!"
