@@ -1,17 +1,17 @@
-Julia has no classes and thus no class-specific methods.
+В языке Julia нет классов и поэтому нет конкретных для класса методов.
 
-Types are like classes without methods.
+Типы подобны классам без методов.
 
-Abstract types can be subtyped but not instantiated.
+Абстрактные типы могут быть подтипизированы, но не инстанцированы.
 
-Concrete types cannot be subtyped.
+Конкретные типы не могут быть подтипизированы.
 
-By default, `struct` s are immutable.
+По умолчанию, структуры `struct` являются неизменяемыми.
 
-Immutable types enhance performance and are thread safe, as they can be
-shared among threads without the need for synchronization.
+Неизменяемые типы повышают производительность и являются потоко-безопасными, поскольку
+разные потоки могут их использовать совместно без необходимости синхронизации.
 
-Objects that may be one of a set of types are called `Union` types.
+Объекты, которые могут быть одним из множества типов, называются типами `Union`.
 
 |                          |                                                   |
 | ------------------------ | ------------------------------------------------- |
