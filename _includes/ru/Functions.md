@@ -1,40 +1,38 @@
-All arguments to functions are passed by reference.
+Все аргументы функций передаются по ссылке.
 
-Functions with `!` appended change at least one argument, typically the first:
+Функции с приставкой `!` изменяют по крайней мере один аргумент, обычно первый:
 `sort!(arr)`.
 
-Required arguments are separated with a comma and use the positional notation.
+Обязательные аргументы разделяются запятой и используют позиционную нотацию.
 
-Optional arguments need a default value in the signature, defined with `=`.
+Необязательные аргументы должны иметь значения по умолчанию в сигнатуре функции, определяемые с помощью `=`.
 
-Keyword arguments use the named notation and are listed in the function's
-signature after the semicolon:
+Аргументы с ключевыми словами используют именованную нотацию и перечисляются в сигнатуре функции после точки с запятой: ``!
 
 ````
 function func(req1, req2; key1=dflt1, key2=dflt2)
-    # do stuff
+    # выполнить операции
 end
 ````
 
-The semicolon is *not* required in the call to a function that accepts keyword arguments.
+Точка с запятой *не* требуется в вызове функции, принимающей аргументы в виде ключевых слов.
 
-The `return` statement is optional but highly recommended.
+Оператор `return` не обязательный, но настоятельно рекомендуется.
 
-Multiple data structures can be returned as a tuple in a single `return` statement.
+Несколько структур данных могут быть возвращены в виде кортежа в одном операторе `return`.
 
-Command line arguments `julia script.jl arg1 arg2...` can be processed from global
-constant `ARGS`:
-
+Аргументы командной строки `julia script.jl arg1 arg2...`  доступны из глобальной
+константы `ARGS`:
 ```
 for arg in ARGS
     println(arg)
 end
 ```
 
-Anonymous functions can best be used in collection functions or list comprehensions:
+Анонимные функции лучше всего использовать в функциях для обработки коллекций или в генераторах списков:
 `x -> x^2`.
 
-Functions can accept a variable number of arguments:
+Функции могут принимать переменное количество аргументов:
 
 ```
 function func(a...)
@@ -44,35 +42,35 @@ end
 func(1, 2, [3:5]) # tuple: (1, 2, UnitRange{Int64}[3:5])
 ```
 
-Functions can be nested:
+Функции могут быть вложенными:
 
 ```
 function outerfunction()
-    # do some outer stuff
+    # выполнить какие-либо внешние операции
     function innerfunction()
-        # do inner stuff
-        # can access prior outer definitions
+        # выполнить внутренние операции
+        # может получить доступ к предыдущим внешним определениям
     end
-    # do more outer stuff
+    # выполнить дальнейшие внешние операции
 end
 ```
 
-Functions can have explicit return types
+Функции могут иметь явные типы возвращаемых ими значений
 
 ```
-# take any Number subtype and return it as a String
+# взять любой подтип Number и вернуть его как  String
 function stringifynumber(num::T)::String where T <: Number
     return "$num"
 end
 ```
 
-Functions can be
-[vectorized](https://docs.julialang.org/en/v1/manual/functions/#man-vectorized-1)
-by using the Dot Syntax
+Функции можно
+[векторизовать](https://docs.julialang.org/en/v1/manual/functions/#man-vectorized-1),
+используя синтаксическую точку
 
 ```
-# here we broadcast the subtraction of each mean value
-# by using the dot operator
+# здесь мы распротраняем вычитание каждого среднего значения
+# с помощью оператора `точка`
 julia> using Statistics
 julia> A = rand(3, 4);
 julia> B = A .- mean(A, dims=1)
@@ -85,22 +83,20 @@ julia> mean(B, dims=1)
  -7.40149e-17  7.40149e-17  1.85037e-17  3.70074e-17
 ```
 
-Julia generates <a class="tooltip" href="#">specialized versions<span> Multiple dispatch a type of
-polymorphism that dynamically determines which version of a function to
-call. In this context, dynamic means that it is resolved at run-time,
-whereas method overloading is resolved at compile time. Julia manages
-multiple dispatch completely in the background. Of course, you can
-provide custom function overloadings with type annotations. </span></a>
-of functions based on data types. When a function is called with the
-same argument types again, Julia can look up the native machine code and
-skip the compilation process.
+Julia создаёт 
+<a class="tooltip" href="#">специализированные версии<span> Множественная диспетчеризация -
+это тип полиморфизмa, заключающийся в динамическом определении, какую версию функции следует вызвать. В данном контексте динамический означает, что решение принимается при
+выполнении, в то время как перегрузка методов происходит во время компиляции. Julia управляет
+множественной диспетчеризацией полностью в фоновом режиме. Конечно, вы можете
+обеспечить перегрузку пользовательских функций с помощью аннотаций типов.</span></a>
+функций на основе типов данных. Когда функция вызывается повторно с
+с теми же типами аргументов, Julia может снова использовать машинный код и
+пропустить процесс компиляции.
 
-Since **Julia 0.5** the existence of potential
-ambiguities is still acceptable, but actually calling an ambiguous
-method is an **immediate error**.
+Начиная с **Julia 0.5**,  потенциальные неоднозначности допустимы, но вызов неоднозначного метода выдаёт **немедленную ошибку**.
 
+Переполнение стека возможно, когда рекурсивные функции вложены на много уровней.
 Stack overflow is possible when recursive functions nest many levels
-deep. [Trampolining](https://web.archive.org/web/20140420011956/http://blog.zachallaun.com/post/jumping-julia) can
-be used to do tail-call optimization, as Julia does not do that
-automatically [yet](https://github.com/JuliaLang/julia/issues/4964).
-Alternatively, you can rewrite the tail recursion as an iteration.
+deep. [Trampolining](https://web.archive.org/web/20140420011956/http://blog.zachallaun.com/post/jumping-julia) 
+[Трамплинг](https://web.archive.org/web/20140420011956/http://blog.zachallaun.com/post/jumping-julia) может быть использован для оптимизации хвостовых вызовов, так как Julia [пока](https://github.com/JuliaLang/julia/issues/4964) не делает этого
+автоматически. В качестве альтернативы, вы можете переписать хвостовую рекурсию как итерацию.
