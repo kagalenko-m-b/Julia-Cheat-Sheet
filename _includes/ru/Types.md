@@ -15,32 +15,29 @@
 
 |                          |                                                   |
 | ------------------------ | ------------------------------------------------- |
-| Type annotation          | `var::TypeName`                                   |
-| Type declaration         | `struct Programmer`<br>`    name::String`<br>`    birth_year::UInt16`<br>`    fave_language::AbstractString`<br>`end` |
-| Mutable type declaration | replace `struct` with `mutable struct`            |
-| Type alias               | `const Nerd = Programmer`                         |
-| Type constructors        | `methods(TypeName)`                               |
-| Type instantiation       | `me = Programmer("Ian", 1984, "Julia")`<br>`me = Nerd("Ian", 1984, "Julia")` |
-| Subtype declaration      | `abstract type Bird end`<br>`struct Duck <: Bird`<br>`    pond::String`<br>`end` |
-| Parametric type          | `struct Point{T <: Real}`<br>`    x::T`<br>`    y::T`<br>`end`<br><br>`p =Point{Float64}(1,2)`<br> |
-| Union types              | `Union{Int, String}`                              |
-| Traverse type hierarchy  | `supertype(TypeName)` and `subtypes(TypeName)`    |
-| Default supertype        | `Any`                                             |
-| All fields               | `fieldnames(TypeName)`                            |
-| All field types          | `TypeName.types`                                  |
+| Аннотация типа           | `var::TypeName`                                   |
+| Декларация типа          | `struct Программист`<br>`    имя::String`<br>`    год_рождения::UInt16`<br>`    предпочитаемый_язык::AbstractString`<br>`end` |
+| Декларация изменяемого типа | замените `struct` with `mutable struct`            |
+| Псевдоним типа           | `const Разработчик = Программист`                         |
+| Конструкторы типов       | `methods(TypeName)`                               |
+| Инстанцирование типа     | `me = Programmer("Ian", 1984, "Julia")`<br>`me = Nerd("Ian", 1984, "Julia")` |
+| Декларация подтипа       | `abstract type Птица end`<br>`struct Утка <: Bird`<br>`    пруд::String`<br>`end` |
+| Параметрический тип      | `struct Point{T <: Real}`<br>`    x::T`<br>`    y::T`<br>`end`<br><br>`p =Point{Float64}(1,2)`<br> |
+| Тип Union                | `Union{Int, String}`                              |
+| Обход иерархии типов     | `supertype(TypeName)` and `subtypes(TypeName)`    |
+| Супертип по умолчанию    | `Any`                                             |
+| Все поля                 | `fieldnames(TypeName)`                            |
+| Типы всех полей          | `TypeName.types`                                  |
 
-When a type is defined with an *inner* constructor, the default *outer*
-constructors are not available and have to be defined manually if need
-be. An inner constructor is best used to check whether the parameters
-conform to certain (invariance) conditions. Obviously, these invariants
-can be violated by accessing and modifying the fields directly, unless
-the type is defined as immutable. The `new` keyword may be used to
-create an object of the same type.
+Когда тип определен с *внутренним* конструктором, стандартные *внешние*
+конструкторы по умолчанию недоступны и при необходимости олжны быть определены вручную. Внутренний конструктор лучше всего использовать для проверки соответствия параметров определенным условиям (инвариантности). Очевидно, что эти инварианты
+могут быть нарушены при прямом доступе к полям и их изменении, если только
+тип не определен как неизменяемый. Ключевое слово `new` может быть использовано для
+создания объекта того же типа.
 
-Type parameters are invariant, which means that `Point{Float64} <: Point{Real}` is
-false, even though `Float64 <: Real`.
-Tuple types, on the other hand, are covariant: `Tuple{Float64} <: Tuple{Real}`.
+Параметры типа инвариантны, и это означает, что `Point{Float64} <: Point{Real}` ложно, даже несмотря на то, что `Float64 <: Real`.
+Кортежи (`Tuple`), с другой стороны, ковариантны: `Tuple{Float64} <: Tuple{Real}`.
 
-The type-inferred form of Julia's internal representation can be found
-with `code_typed()`. This is useful to identify where `Any` rather
-than type-specific native code is generated.
+Полученная с помощью [вывода типов](https://ru.wikipedia.org/wiki/Вывод_типов) 
+внутреннее представление Julia можно найти с помощью `code_typed()`. Это полезно в тех
+случаях, когда генерируется `Any` вместо кода для конкретного типа.

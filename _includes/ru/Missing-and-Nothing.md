@@ -1,8 +1,8 @@
 |                       |                                                  |
 | --------------------- | ------------------------------------------------ |
-| Programmers Null      | `nothing`                                        |
-| Missing Data          | `missing`                                        |
-| Not a Number in Float | `NaN`                                            |
-| Filter missings       | `collect(skipmissing([1, 2, missing])) == [1,2]` |
-| Replace missings      | `collect((df[:col], 1))`                         |
-| Check if missing      | `ismissing(x)` **not** `x == missing`            |
+| Null программиста     | `nothing`                                        |
+| Отсутствующие данные   | `missing`                                        |
+| `Не число` с плавающей точкой | `NaN`                                            |
+| Отфильтровать отсутствующие данные | `collect(skipmissing([1, 2, missing])) == [1,2]` |
+| Заменить отсутствующие данные | `collect((df[:col], 1))`                         |
+| Проверить, есть ли `missing`  | `ismissing(x)` **not** `x == missing`            |
