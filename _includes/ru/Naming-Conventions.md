@@ -1,16 +1,16 @@
-The main convention in Julia is to avoid underscores unless they are required for legibility.
+Основное соглашение в Julia - избегать подчеркивания, если оно не требуется для удобочитаемости.
 
-Variable names are in lower (or snake) case: `somevariable`.
+Имена переменных пишутся в нижнем (либо "змеином") регистре: `somevariable`, `some_variable`.
 
-Constants are in upper case: `SOMECONSTANT`.
+Константы пишутся в верхнем регистре: `SOMECONSTANT`.
 
-Functions are in lower (or snake) case: `somefunction`.
+Функции пишутся в нижнем (или змеином) регистре: `somefunction` (`some_function`).
 
-Macros are in lower (or snake) case: `@somemacro`.
+Макросы пишутся в нижнем (или змеином) регистре: `@somemacro`.
 
-Type names are in initial-capital camel case: `SomeType`.
+Имена типов пишутся в начальном заглавном верблюжьем регистре: `SomeType`.
 
-Julia files have the `jl` extension.
+Файлы Julia имеют расширение `jl`.
 
-For more information on Julia code style visit the manual: [style
+Для получения дополнительной информации о стиле кода Julia познакомьтесь с руководством: [style
 guide](https://docs.julialang.org/en/v1/manual/style-guide/index.html) .

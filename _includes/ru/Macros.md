@@ -1,15 +1,16 @@
-Macros allow generated code (i.e. expressions) to be included in a
-program.
+Макросы позволяют включать в программу сгенерированный код (т.е. выражения).
 
 |                 |                                                            |
 | --------------- | ---------------------------------------------------------- |
-| Definition      | `macro macroname(expr)`<br>`    # do stuff`<br>`end`       |
-| Usage           | `@macroname(ex1, ex2, ...)` or `@macroname ex1 ex2 ...`   |
-| Built-in macros | `@test           # equal (exact)`<br>`@test x ≈ y    # isapprox(x, y)`<br>`@assert         # assert (unit test)`<br>`@which          # types used`<br>`@time           # time and memory statistics`<br>`@elapsed        # time elapsed`<br>`@allocated      # memory allocated`<br>`@profile        # profile`<br>`@spawn          # run at some worker`<br>`@spawnat        # run at specified worker`<br>`@async          # asynchronous task`<br>`@distributed    # parallel for loop`<br>`@everywhere     # make available to workers` |
+| Определение     | `macro macroname(expr)`<br>`    # do stuff`<br>`end`       |
+| Использование   | `@macroname(ex1, ex2, ...)` or `@macroname ex1 ex2 ...`   |
+| Встроенные макро| `@test           # равенство (точное)`<br>`@test x ≈ y    # isapprox(x, y)`<br>`@assert         # assert (модульный тест)`<br>`@which          # использованные типы`<br>`@time           # время и память, использованные выражение`<br>`@elapsed        # время исполнения выражения`<br>`@allocated      # выделенная память`<br>`@profile        # профилировать`<br>`@spawnat          # асинхронно выполнить в определённом процессе`<br>`@spawnat        # run at specified worker`<br>`@async          # асинхронная задача`<br>`@distributed    # параллельный цикл for`<br>`@everywhere     # выполнить во всех процессах` |
 
 
-Rules for creating *hygienic* macros:
+Парвила создания *гигиенических*[^1] макросов:
 
-- Declare variables inside macro with `local` .
-- Do not call `eval` inside macro.
-- Escape interpolated expressions to avoid expansion: `$(esc(expr))`
+- Декларируйте переменные внутри макро как `local`.
+- Не вызывайте `eval` внутри макро.
+- Экранируйте интерполированные выражения, чтобы избежать расширения: `$(esc(expr))`
+
+[^1]: Гигиенические макросы — это макросы, раскрытие которых гарантированно не вызовет случайного захвата идентификаторов.

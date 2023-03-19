@@ -1,15 +1,14 @@
-Many core packages are managed by communities with names of the form
-Julia\[Topic\].
+Многие важные пакеты развиваются сообществами, названными по схеме Julia\[Предмет\].
 
 |                           |                                                  |
 | ------------------------- | ------------------------------------------------ |
-| Statistics                | JuliaStats                                       |
-| Scientific Machine Learning | SciML (DifferentialEquations.jl)      |
-| Automatic differentiation | JuliaDiff                                        |
-| Numerical optimization    | JuliaOpt                                         |
-| Plotting                  | JuliaPlots                                       |
-| Network (Graph) Analysis  | JuliaGraphs                                      |
-| Web                       | JuliaWeb                                         |
-| Geo-Spatial               | JuliaGeo                                         |
-| Machine Learning          | JuliaML                                          |
-| Super-used Packages       | `DataFrames    # linear/logistic regression`<br>`Distributions # Statistical distributions`<br>`Flux          # Machine learning`<br>`Gadfly        # ggplot2-likeplotting`<br>`LightGraphs   # Network analysis`<br>`TextAnalysis  # NLP` |
+| Статистика                | JuliaStats                                       |
+| Scientific Machine Learning | SciML (DifferentialEquations.jl)               |
+| Автоматическое дифференцирование | JuliaDiff                                 |
+| Численная оптимизация     | JuliaOpt                                         |
+| Построение графиков       | JuliaPlots                                       |
+| Анализis сетей (графов)   | JuliaGraphs                                      |
+| Всемирная паутина         | JuliaWeb                                         |
+| Геоинформатика            | JuliaGeo                                         |
+| Машинное обучение         | JuliaML                                          |
+| Супер-популярные пакеты   | `DataFrames    # линейная/логистическая регрессия`<br>`Distributions # Статистические распределения<br>`Flux          # Машинное обучение`<br>`Gadfly        # построение графиков подобно ggplot2`<br>`Graphs   # Анализ сетей`<br>`Анализ текста # Обработка естественного языка` |
